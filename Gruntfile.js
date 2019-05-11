@@ -224,6 +224,13 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true
             },
+            measureConverterCss: {
+                cwd: measureConverterDirPath + 'static/components/css/',
+                src: 'measure_converter.css',
+                dest: clientCssDirPath,
+                expand: true,
+                flatten: true
+            },
             scgHtml: {
                 cwd: scgDirPath + 'static/components/html/',
                 src: ['**/*.html'],
@@ -305,6 +312,10 @@ module.exports = function(grunt) {
             scsCss: {
                 files: scsDirPath + 'static/components/css/**',
                 tasks: ['copy:scsCss'],
+            },
+            measureConverterCss: {
+                files: measureConverterDirPath + 'static/components/css/**',
+                tasks: ['copy:measureConverterCss'],
             },
             scgHtml: {
                 files: [scgDirPath + 'static/components/html/**'],
