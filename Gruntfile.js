@@ -8,6 +8,8 @@ module.exports = function(grunt) {
     var helpSystemDirPath = 'components/help_system/';
     var defectsIndicatorDirPath = 'components/defects_indicator/';
     var measureConverterDirPath = 'components/measure_converter/';
+    var concernsClassifierDirPath = 'components/concerns_classifier/';
+    var intercheangableCarDirPath = 'components/intercheangable_car/';
     var webCoreCompPath = 'client/js/';
     var clientJsDirPath = 'client/static/components/js/';
     var clientCssDirPath = 'client/static/components/css/';
@@ -138,6 +140,20 @@ module.exports = function(grunt) {
                 ],
                 dest: measureConverterDirPath + 'static/components/js/measure_converter/measure_converter.js'
             },
+            concernsClassifier: {
+                src: [concernsClassifierDirPath + 'src/example-common.js',
+                    concernsClassifierDirPath + 'src/example-component.js',
+                    concernsClassifierDirPath + 'src/example-paintPanel.js'
+                ],
+                dest: concernsClassifierDirPath + 'static/components/js/concerns_classifier/concerns_classifier.js'
+            },
+            intercheangableCar: {
+                src: [intercheangableCarDirPath + 'src/example-common.js',
+                    intercheangableCarDirPath + 'src/example-component.js',
+                    intercheangableCarDirPath + 'src/example-paintPanel.js'
+                ],
+                dest: intercheangableCarDirPath + 'static/components/js/intercheangable_car/intercheangable_car.js'
+            },
         },
         copy: {
             githubJs: {
@@ -193,6 +209,20 @@ module.exports = function(grunt) {
                 cwd: measureConverterDirPath + 'static/components/js/measure_converter/',
                 src: 'measure_converter.js',
                 dest: clientJsDirPath + 'measure_converter/',
+                expand: true,
+                flatten: true
+            },
+            concernsClassifierJs: {
+                cwd: concernsClassifierDirPath + 'static/components/js/concerns_classifier/',
+                src: 'concerns_classifier.js',
+                dest: clientJsDirPath + 'concerns_classifier/',
+                expand: true,
+                flatten: true
+            },
+            intercheangableCarJs: {
+                cwd: intercheangableCarDirPath + 'static/components/js/intercheangable_car/',
+                src: 'intercheangable_car.js',
+                dest: clientJsDirPath + 'intercheangable_car/',
                 expand: true,
                 flatten: true
             },
@@ -258,6 +288,15 @@ module.exports = function(grunt) {
                 dest: clientImgDirPath + 'scg/alphabet',
                 expand: true,
                 flatten: true
+            },
+            concernsClassifierImg: {
+                cwd: concernsClassifierDirPath + 'static/components/images/',
+                src: ['*.png',
+                    '*.jpg'
+                ],
+                dest: clientImgDirPath,
+                expand: true,
+                flatten: true
             }
         },
         watch: {
@@ -297,6 +336,14 @@ module.exports = function(grunt) {
                 files: measureConverterDirPath + 'src/**',
                 tasks: ['concat:measureConverter', 'copy:measureConverterJs'],
             },
+            concernsClassifierJs: {
+                files: concernsClassifierDirPath + 'src/**',
+                tasks: ['concat:concernsClassifier', 'copy:concernsClassifierJs'],
+            },
+            intercheangableCarJs: {
+                files: intercheangableCarDirPath + 'src/**',
+                tasks: ['concat:intercheangableCar', 'copy:intercheangableCarJs'],
+            },
             githubCss: {
                 files: githubDirPath + 'static/components/css/**',
                 tasks: ['copy:githubCss'],
@@ -328,6 +375,10 @@ module.exports = function(grunt) {
             scgImg: {
                 files: [scgDirPath + 'static/components/images/scg/**'],
                 tasks: ['copy:scgImg', 'copy:scgImgAlphabet'],
+            },
+            concernsClassifierImg: {
+                files: [concernsClassifierDirPath + 'static/components/images/**'],
+                tasks: ['copy:concernsClassifierImg'],
             },
         },
     });
