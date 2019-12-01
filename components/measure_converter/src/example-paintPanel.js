@@ -18,7 +18,7 @@ MeasureConverter.PaintPanel.prototype = {
 		var self = this;
 
 		container.append(
-			'<div id="measure-converter"> \
+			'<div id="measure-converter" class="sc-no-default-cmd"> \
 				<h3 id="component">Компонент конвертирования единиц измерения</h3> \
 				<div id="input-area"> \
 					<div id="input-field"> \

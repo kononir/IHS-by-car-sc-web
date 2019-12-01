@@ -1,0 +1,49 @@
+<div id="autopart-searcher" class="sc-no-default-cmd">
+    <h3>Компонент поиска автозапчатей по критериям</h3>
+
+    <h4>Поиск по артикулу</h4>
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="article-value">Артикул</label>
+            <input type="text" id="article-value" class="form-control" placeholder="Введите значение"
+                list="article-value-list">
+            <datalist id="article-value-list"></datalist>
+        </div>
+    </div>
+
+    <button id="find-autoparts-by-article" type="button" class="btn btn-primary">Найти</button><br>
+
+    <div id="found-autopart-by-article"></div>
+
+    <hr>
+
+    <h4>Поиск по вспомогательным критериям</h4>
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label id="type-of-autopart-label" for="type-of-autopart">Тип запчасти</label>
+            <input type="text" id="type-of-autopart" class="form-control" placeholder="Введите тип"
+                list="type-of-autopart-list">
+            <datalist id="type-of-autopart-list"></datalist>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="manufacturer-value">Фирма-производитель</label>
+            <input type="text" id="manufacturer-value" class="form-control" placeholder="Введите значение"
+                list="manufacturer-value-list">
+            <datalist id="manufacturer-value-list"></datalist>
+        </div>
+    </div>
+
+    <div id="criterion-rows"></div>
+
+    <button id="add-criterion-row-btn" class="btn btn-success" style="margin-right: 5px;">+</button>
+    <br><br>
+
+    <button id="find-autoparts" type="button" class="btn btn-primary">Найти</button>
+
+    <div id="found-autoparts" style="margin-bottom: 20px;"></div>
+</div>

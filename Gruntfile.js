@@ -10,6 +10,8 @@ module.exports = function(grunt) {
     var measureConverterDirPath = 'components/measure_converter/';
     var concernsClassifierDirPath = 'components/concerns_classifier/';
     var intercheangableCarDirPath = 'components/intercheangable_car/';
+    var modelSpecificationDirPath = 'components/model_specification/';
+    var autopartSearchingDirPath = 'components/autopart_searching/';
     var webCoreCompPath = 'client/js/';
     var clientJsDirPath = 'client/static/components/js/';
     var clientCssDirPath = 'client/static/components/css/';
@@ -154,6 +156,20 @@ module.exports = function(grunt) {
                 ],
                 dest: intercheangableCarDirPath + 'static/components/js/intercheangable_car/intercheangable_car.js'
             },
+            modelSpecification: {
+                src: [modelSpecificationDirPath + 'src/example-common.js',
+                    modelSpecificationDirPath + 'src/example-component.js',
+                    modelSpecificationDirPath + 'src/example-paintPanel.js'
+                ],
+                dest: modelSpecificationDirPath + 'static/components/js/model_specification/model_specification.js'
+            },
+            autopartSearching: {
+                src: [autopartSearchingDirPath + 'src/example-common.js',
+                    autopartSearchingDirPath + 'src/example-component.js',
+                    autopartSearchingDirPath + 'src/example-paintPanel.js'
+                ],
+                dest: autopartSearchingDirPath + 'static/components/js/autopart_searching/autopart_searching.js'
+            }
         },
         copy: {
             githubJs: {
@@ -226,6 +242,20 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true
             },
+            modelSpecificationJs: {
+                cwd: modelSpecificationDirPath + 'static/components/js/model_specification/',
+                src: 'model_specification.js',
+                dest: clientJsDirPath + 'model_specification/',
+                expand: true,
+                flatten: true
+            },
+            autopartSearchingJs: {
+                cwd: autopartSearchingDirPath + 'static/components/js/autopart_searching/',
+                src: 'autopart_searching.js',
+                dest: clientJsDirPath + 'autopart_searching/',
+                expand: true,
+                flatten: true
+            },
             githubCss: {
                 cwd: githubDirPath + 'static/components/css/',
                 src: 'github.css',
@@ -265,6 +295,13 @@ module.exports = function(grunt) {
                 cwd: scgDirPath + 'static/components/html/',
                 src: ['**/*.html'],
                 dest: clientHtmlDirPath,
+                expand: true,
+                flatten: true
+            },
+            autopartSearchingHtml: {
+                cwd: autopartSearchingDirPath + 'static/components/html/',
+                src: ['**/*.html'],
+                dest: clientHtmlDirPath + "autopart_searching/",
                 expand: true,
                 flatten: true
             },
@@ -344,6 +381,14 @@ module.exports = function(grunt) {
                 files: intercheangableCarDirPath + 'src/**',
                 tasks: ['concat:intercheangableCar', 'copy:intercheangableCarJs'],
             },
+            modelSpecificationJs: {
+                files: modelSpecificationDirPath + 'src/**',
+                tasks: ['concat:modelSpecification', 'copy:modelSpecificationJs'],
+            },
+            autopartSearchingJs: {
+                files: autopartSearchingDirPath + 'src/**',
+                tasks: ['concat:autopartSearching', 'copy:autopartSearchingJs'],
+            },
             githubCss: {
                 files: githubDirPath + 'static/components/css/**',
                 tasks: ['copy:githubCss'],
@@ -367,6 +412,10 @@ module.exports = function(grunt) {
             scgHtml: {
                 files: [scgDirPath + 'static/components/html/**'],
                 tasks: ['copy:scgHtml'],
+            },
+            autopartSearchingHtml: {
+                files: [autopartSearchingDirPath + 'static/components/html/**'],
+                tasks: ['copy:autopartSearchingHtml'],
             },
             htmlImg: {
                 files: [htmlDirPath + 'static/components/images/html/**',],

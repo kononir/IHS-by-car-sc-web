@@ -4,7 +4,7 @@ html {
 		
 body {
     padding-top: 65px;
-    padding-bottom: 73px;
+    padding-bottom: 150px;
     height: 100%;
 }
 
@@ -455,3 +455,5 @@ div[class="tooltip-inner"] {
 .gplus-login-button:active {
     background-image: url("../images/gplus/White-signin_Small_press_32dp.png");
 }
+
+
