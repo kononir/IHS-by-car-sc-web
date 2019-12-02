@@ -12,6 +12,7 @@ module.exports = function(grunt) {
     var intercheangableCarDirPath = 'components/intercheangable_car/';
     var modelSpecificationDirPath = 'components/model_specification/';
     var autopartSearchingDirPath = 'components/autopart_searching/';
+    var autoTestDirPath = 'components/auto_test/';
     var webCoreCompPath = 'client/js/';
     var clientJsDirPath = 'client/static/components/js/';
     var clientCssDirPath = 'client/static/components/css/';
@@ -169,6 +170,13 @@ module.exports = function(grunt) {
                     autopartSearchingDirPath + 'src/example-paintPanel.js'
                 ],
                 dest: autopartSearchingDirPath + 'static/components/js/autopart_searching/autopart_searching.js'
+            },
+            autoTest: {
+                src: [autoTestDirPath + 'src/example-common.js',
+                    autoTestDirPath + 'src/example-component.js',
+                    autoTestDirPath + 'src/example-paintPanel.js'
+                ],
+                dest: autoTestDirPath + 'static/components/js/auto_test/auto_test.js'
             }
         },
         copy: {
@@ -253,6 +261,13 @@ module.exports = function(grunt) {
                 cwd: autopartSearchingDirPath + 'static/components/js/autopart_searching/',
                 src: 'autopart_searching.js',
                 dest: clientJsDirPath + 'autopart_searching/',
+                expand: true,
+                flatten: true
+            },
+            autoTestJs: {
+                cwd: autoTestDirPath + 'static/components/js/auto_test/',
+                src: 'auto_test.js',
+                dest: clientJsDirPath + 'auto_test/',
                 expand: true,
                 flatten: true
             },
@@ -388,6 +403,10 @@ module.exports = function(grunt) {
             autopartSearchingJs: {
                 files: autopartSearchingDirPath + 'src/**',
                 tasks: ['concat:autopartSearching', 'copy:autopartSearchingJs'],
+            },
+            autoTestJs: {
+                files: autoTestDirPath + 'src/**',
+                tasks: ['concat:autoTest', 'copy:autoTestJs'],
             },
             githubCss: {
                 files: githubDirPath + 'static/components/css/**',

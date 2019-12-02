@@ -24,7 +24,7 @@ FindModel.PaintPanel.prototype = {
 						 <option disabled selected>Выберите марку автомобиля</option>\
 						 <option value="concept_Volkswagen">Volkswagen</option>\
 						 <option value="concept_Audi">Audi</option>\
-						 <option value="concept_mercedec">Mercedec</option>\
+						 <option value="concept_Mercedec">Mercedec</option>\
 						 </select></br>');
 	
 		container.append('Кузов автомобиля:</br>');
@@ -38,7 +38,7 @@ FindModel.PaintPanel.prototype = {
 
 		container.append('Период производства:</br>');
 		container.append('<select size="1"   id="production_period" style="width:300px" >\
-						<option disabled selected>Выберите период производства автомобиля</option>\
+						<option disabled selected>Выберите период производства</option>\
 						<option value="concept_period_1993_1997">1993-1997</option>\
 						<option value="concept_period_1998_2004">1998-2004</option>\
 						<option value="concept_period_2005_2010">2005-2010</option>\
@@ -83,7 +83,7 @@ FindModel.PaintPanel.prototype = {
 						sc_type_arc_pos_const_perm,
 						nrel_auto_mark_addr_numb]).done(function(element_of_concept_auto_mark_to_elements_of_concept_model_mas){
 							for (count = 0; count < element_of_concept_auto_mark_to_elements_of_concept_model_mas.length; count++){
-								window.scHelper.getIdentifier(element_of_concept_auto_mark_to_elements_of_concept_model_mas[count][0],SCWeb.core.Server._current_language).done(function (model) {
+								window.scHelper.getIdentifier(element_of_concept_auto_mark_to_elements_of_concept_model_mas[count][0],SCWeb.core.Server._current_language).done(function(model) {
 									model_set.push(model);
 								})
 							}
@@ -108,7 +108,7 @@ FindModel.PaintPanel.prototype = {
 						sc_type_arc_pos_const_perm,
 						nrel_car_body_addr_numb]).done(function(element_of_concept_car_body_to_elements_of_concept_model_mas){
 							for (count = 0; count < element_of_concept_car_body_to_elements_of_concept_model_mas.length; count++){
-								window.scHelper.getIdentifier(element_of_concept_car_body_to_elements_of_concept_model_mas[count][0],SCWeb.core.Server._current_language).done(function (model) {
+								window.scHelper.getIdentifier(element_of_concept_car_body_to_elements_of_concept_model_mas[count][0],SCWeb.core.Server._current_language).done(function(model) {
 									model_set.push(model);
 								})
 							}

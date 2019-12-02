@@ -42,6 +42,11 @@ AutopartSearcher.PaintPanel.prototype = {
 				self._findAutopartByArticle();
 			});
 
+			$('#reset-found-autopart-by-article').click(function () {
+				$('#found-autopart-by-article').children().remove();
+				$('#article-value').val('');
+			});
+
 			var type_of_autopart = $('#type-of-autopart');
 			type_of_autopart.click(function () {
 				if ($('#type-of-autopart-list').children().length === 0) {
@@ -135,6 +140,20 @@ AutopartSearcher.PaintPanel.prototype = {
 				}
 
 				self._findAutoparts();
+			});
+
+			$('#reset-found-autoparts').click(function () {
+				$('#found-autoparts').children().remove();
+
+				$('#type-of-autopart').val('');
+
+				$('#manufacturer-value').val('');
+
+				var selected_criterions_num = $('#criterion-rows').children().length;
+				for (var i = 1; i <= selected_criterions_num; i++) {
+					$('#criterion-' + i).val('');
+					$('#criterion-' + i + '-value').val('');
+				}
 			});
 		});
 	},
@@ -409,9 +428,9 @@ AutopartSearcher.PaintPanel.prototype = {
 		for (var i = 1; i <= selected_criterions_num; i++) {
 			var selected_criterion = $('#criterion-' + i + '-value').val();
 			if (selected_criterion !== "") {
-				var selected_type_of_autopart_addr
+				var selected_criterion_addr
 					= $('#criterion-' + i + '-value-list [value="' + selected_criterion + '"]').data('value');
-				selected_criterions_addrs.push(selected_type_of_autopart_addr);
+				selected_criterions_addrs.push(selected_criterion_addr);
 			}
 		}
 
